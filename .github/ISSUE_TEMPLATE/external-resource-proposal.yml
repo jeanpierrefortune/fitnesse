@@ -20,7 +20,7 @@ body:
         ## Provided resource types
   - type: dropdown
     attributes:
-      label: Select the types of products or services you are proposing (multiple options can be selected)
+      label: The types of products or services provided (multiple options can be selected)
       multiple: true
       options:
         - Reader plugins
@@ -32,7 +32,7 @@ body:
         - Development
   - type: input
     attributes:
-      label: Other resources
+      label: Other types (not listed above)
       placeholder: R1, R2, etc.
     validations:
       required: false
