@@ -17,7 +17,7 @@ body:
       value: |
         <br>
 
-        ## Provided resources types
+        ## Provided resource types
   - type: dropdown
     attributes:
       label: Select the types of products or services you are proposing (multiple options can be selected)
