@@ -1,5 +1,5 @@
-name: 📌 External Resources Proposal
-description: Fill out this form to provide information about the external resource to be referenced
+name: External Resources Proposal Form
+description: Fill out this form to provide information about the external resources to be referenced
 title: "External Resources Proposal"
 labels: ["resource"]
 body:
@@ -66,11 +66,5 @@ body:
   - type: textarea
     attributes:
       label: or rich text description
-    validations:
-      required: false
-  - type: textarea
-    attributes:
-      label: render shell
-      render: shell
     validations:
       required: false
