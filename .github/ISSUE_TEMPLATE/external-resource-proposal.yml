@@ -9,6 +9,9 @@ body:
       description: The name of the company that provides the resource
     validations:
       required: true
+  - type: markdown
+    attributes:
+      value: ---
   - type: checkboxes
     attributes:
       label: Types of resources provided
@@ -34,23 +37,23 @@ body:
       required: false
   - type: markdown
     attributes:
-      value: Summary (2 sentences max)
+      value: ---
   - type: input
     attributes:
-      label: Sentence 1
+      label: Summary (sentence #1)
     validations:
       required: true
   - type: input
     attributes:
-      label: Sentence 2
+      label: Summary (sentence #2, optional)
     validations:
       required: false
   - type: markdown
     attributes:
-      value: Product or service description
+      value: ---
   - type: input
     attributes:
-      label: External URL
+      label: Description page (external URL)
     validations:
       required: false
   - type: textarea
