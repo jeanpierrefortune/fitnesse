@@ -63,8 +63,11 @@ body:
       label: External page URL
     validations:
       required: false
+  - type: markdown
+    attributes:
+      value: "or"
   - type: textarea
     attributes:
-      label: or rich text description
+      label: Rich text description
     validations:
       required: false
