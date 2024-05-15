@@ -68,3 +68,9 @@ body:
       label: or rich text description
     validations:
       required: false
+  - type: textarea
+    attributes:
+      label: render shell
+      render: shell
+    validations:
+      required: false
