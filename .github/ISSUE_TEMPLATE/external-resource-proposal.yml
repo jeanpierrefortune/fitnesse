@@ -11,7 +11,7 @@ body:
       required: true
   - type: markdown
     attributes:
-      value: "---"
+      value: "Test"
   - type: checkboxes
     attributes:
       label: Types of resources provided
@@ -37,7 +37,7 @@ body:
       required: false
   - type: markdown
     attributes:
-      value: "---"
+      value: "Test"
   - type: input
     attributes:
       label: Summary (sentence #1)
@@ -50,7 +50,7 @@ body:
       required: false
   - type: markdown
     attributes:
-      value: "---"
+      value: "Test"
   - type: input
     attributes:
       label: Description page (external URL)
