@@ -6,20 +6,13 @@ body:
   - type: input
     attributes:
       label: Supplier name
-      placeholder: The name of the company that provides the resource.
-      description: The name of the company that provides the resource.
+      description: The name of the company that provides the resource
     validations:
       required: true
-  - type: input
-    attributes:
-      label: Company website
-      description: Provide the company's website URL.
-    validations:
-      required: false
   - type: checkboxes
     attributes:
       label: Types of resources provided
-      description: Select the types of products or services you are proposing (multiple options can be selected).
+      description: Select the types of products or services you are proposing (multiple options can be selected)
       options:
         - label: Reader plugin
           required: false
@@ -35,25 +28,33 @@ body:
           required: false
   - type: input
     attributes:
-      label: Other
-      description: Non-listed resource, comma separated if multiple.
+      label: Other resources
+      placeholder: R1, R2, etc.
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: Summary (2 sentences max)
+  - type: input
+    attributes:
+      label: Sentence 1
     validations:
       required: true
   - type: input
     attributes:
-      label: Resource Name
-      description: Provide a clear and concise name for the resource.
+      label: Sentence 2
     validations:
-      required: true
+      required: false
+  - type: markdown
+    attributes:
+      value: Product or service description
+  - type: input
+    attributes:
+      label: External URL
+    validations:
+      required: false
   - type: textarea
     attributes:
-      label: Resource Description
-      description: Provide a clear and concise description of the resource and its purpose.
-    validations:
-      required: true
-  - type: input
-    attributes:
-      label: Resource Link
-      description: Provide the URL to the resource.
+      label: or rich text description
     validations:
       required: false
