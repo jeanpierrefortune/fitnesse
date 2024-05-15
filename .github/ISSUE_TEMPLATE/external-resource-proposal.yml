@@ -37,23 +37,27 @@ body:
       required: false
   - type: markdown
     attributes:
-      value: "---"
+      value: |
+        ---
+        # Summary
   - type: input
     attributes:
-      label: Summary (sentence 1)
+      label: sentence 1
     validations:
       required: true
   - type: input
     attributes:
-      label: Summary (sentence 2, optional)
+      label: sentence 2 (optional)
     validations:
       required: false
   - type: markdown
     attributes:
-      value: "---"
+      value: |
+        ---
+        Description
   - type: input
     attributes:
-      label: Description page (external URL)
+      label: External page URL
     validations:
       required: false
   - type: textarea
