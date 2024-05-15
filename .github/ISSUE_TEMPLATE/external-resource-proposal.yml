@@ -16,6 +16,7 @@ body:
     attributes:
       value: |
         <br>
+
         ## Resources types
   - type: checkboxes
     attributes:
@@ -43,6 +44,7 @@ body:
     attributes:
       value: |
         <br>
+
         ## Description summary
   - type: input
     attributes:
@@ -58,6 +60,7 @@ body:
     attributes:
       value: |
         <br>
+
         ## Full description
   - type: input
     attributes:
