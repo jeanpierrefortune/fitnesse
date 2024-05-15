@@ -18,6 +18,14 @@ body:
         <br>
 
         ## Resources types
+  - type: dropdown
+    attributes:
+      label: Resources T
+      multiple: true
+      options:
+        - Reader plugin
+        - Card extension
+        - Demo
   - type: checkboxes
     attributes:
       label: Select the types of products or services you are proposing (multiple options can be selected)
