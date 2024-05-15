@@ -9,7 +9,7 @@ body:
         ## Supplier name
   - type: input
     attributes:
-      label: The name of the company that provides the resource
+      label: The name of the company that provides the resources
     validations:
       required: true
   - type: markdown
@@ -17,7 +17,7 @@ body:
       value: |
         <br>
 
-        ## Resources types
+        ## Provided resources types
   - type: dropdown
     attributes:
       label: Select the types of products or services you are proposing (multiple options can be selected)
