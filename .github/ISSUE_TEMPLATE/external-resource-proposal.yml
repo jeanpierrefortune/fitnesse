@@ -41,15 +41,15 @@ body:
       value: |
         <br>
 
-        ## Description summary
+        ## Short description
   - type: input
     attributes:
-      label: Description summary (sentence 1)
+      label: Short description (sentence 1)
     validations:
       required: true
   - type: input
     attributes:
-      label: Description summary (sentence 2, optional)
+      label: Short description (sentence 2, optional)
     validations:
       required: false
   - type: markdown
