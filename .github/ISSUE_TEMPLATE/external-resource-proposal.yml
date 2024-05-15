@@ -9,9 +9,6 @@ body:
       description: The name of the company that provides the resource
     validations:
       required: true
-  - type: markdown
-    attributes:
-      value: "Test"
   - type: checkboxes
     attributes:
       label: Types of resources provided
@@ -35,9 +32,6 @@ body:
       placeholder: R1, R2, etc.
     validations:
       required: false
-  - type: markdown
-    attributes:
-      value: "Test"
   - type: input
     attributes:
       label: Summary (sentence #1)
@@ -48,9 +42,6 @@ body:
       label: Summary (sentence #2, optional)
     validations:
       required: false
-  - type: markdown
-    attributes:
-      value: "Test"
   - type: input
     attributes:
       label: Description page (external URL)
