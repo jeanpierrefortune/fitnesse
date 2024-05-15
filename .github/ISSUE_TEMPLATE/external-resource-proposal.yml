@@ -1,6 +1,6 @@
-name: 📌 External Resource Proposal
+name: 📌 External Resources Proposal
 description: Fill out this form to provide information about the external resource to be referenced
-title: "External Resource Proposal"
+title: "External Resources Proposal"
 labels: ["resource"]
 body:
   - type: markdown
@@ -20,28 +20,16 @@ body:
         ## Resources types
   - type: dropdown
     attributes:
-      label: Resources T
+      label: Select the types of products or services you are proposing (multiple options can be selected)
       multiple: true
       options:
-        - Reader plugin
-        - Card extension
-        - Demo
-  - type: checkboxes
-    attributes:
-      label: Select the types of products or services you are proposing (multiple options can be selected)
-      options:
-        - label: Reader plugin
-          required: false
-        - label: Card extension
-          required: false
-        - label: Demo
-          required: false
-        - label: Compliant terminal
-          required: false
-        - label: Training
-          required: false
-        - label: Development
-          required: false
+        - Reader plugins
+        - Card extensions
+        - Demos
+        - Tools
+        - Compliant terminals
+        - Training
+        - Development
   - type: input
     attributes:
       label: Other resources
@@ -56,12 +44,12 @@ body:
         ## Description summary
   - type: input
     attributes:
-      label: sentence 1
+      label: Description summary (sentence 1)
     validations:
       required: true
   - type: input
     attributes:
-      label: sentence 2 (optional)
+      label: Description summary (sentence 2, optional)
     validations:
       required: false
   - type: markdown
