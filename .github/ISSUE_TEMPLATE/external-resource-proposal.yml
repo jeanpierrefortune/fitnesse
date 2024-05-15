@@ -3,19 +3,22 @@ description: Fill out this form to provide information about the external resour
 title: "External Resource Proposal"
 labels: ["resource"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Supplier name
   - type: input
     attributes:
-      label: Supplier name
-      description: The name of the company that provides the resource
+      label: The name of the company that provides the resource
     validations:
       required: true
   - type: markdown
     attributes:
-      value: "---"
+      value: |
+        ## Resources types
   - type: checkboxes
     attributes:
-      label: Types of resources provided
-      description: Select the types of products or services you are proposing (multiple options can be selected)
+      label: Select the types of products or services you are proposing (multiple options can be selected)
       options:
         - label: Reader plugin
           required: false
@@ -38,8 +41,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        ---
-        # Summary
+        ## Summary
   - type: input
     attributes:
       label: sentence 1
@@ -53,8 +55,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        ---
-        Description
+        ## Description
   - type: input
     attributes:
       label: External page URL
