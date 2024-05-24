@@ -9,8 +9,7 @@ import javax.smartcardio.TerminalFactory;
 
 public class ReaderManager {
 
-  public ReaderManager() {
-  }
+  public ReaderManager() {}
 
   public boolean enumerateReaders(boolean flag) throws IOException, CardException {
     try {
@@ -30,7 +29,9 @@ public class ReaderManager {
     return true;
   }
 
-  public String getShowValue() { return "show value returned from Java"; }
+  public String getShowValue() {
+    return "show value returned from Java";
+  }
 
   private void enumerateAndWriteReaders(String fileName) throws IOException, CardException {
     TerminalFactory terminalFactory = TerminalFactory.getDefault();
@@ -39,6 +40,7 @@ public class ReaderManager {
     try {
       terminals = terminalFactory.terminals().list();
     } catch (CardException e) {
+      e.printStackTrace();
     }
 
     try (FileWriter writer = new FileWriter(fileName)) {
@@ -58,6 +60,8 @@ public class ReaderManager {
       writer.write(".btn { display: inline-block; padding: 10px 20px; font-size: 16px; color: #fff; background-color: #007bff; border: none; border-radius: 4px; cursor: pointer; text-align: center; }\n");
       writer.write(".btn:hover { background-color: #0056b3; }\n");
       writer.write(".alert { padding: 15px; background-color: #f44336; color: white; margin-bottom: 20px; border-radius: 4px; }\n");
+      writer.write(".success { padding: 15px; background-color: #4CAF50; color: white; margin-bottom: 20px; border-radius: 4px; }\n");
+      writer.write(".error { padding: 15px; background-color: #f44336; color: white; margin-bottom: 20px; border-radius: 4px; }\n");
       writer.write("</style>\n");
       writer.write("<title>PC/SC Readers</title>\n");
       writer.write("<script>\n");
@@ -69,28 +73,36 @@ public class ReaderManager {
       writer.write("  }\n");
       writer.write("  const readerName = selectedReader.value;\n");
       writer.write("  fetch(`/OpenSAM.SetReader?responder=test&readerName=${encodeURIComponent(readerName)}`)\n");
-      writer.write("    .then(response => response.json())\n");
-      writer.write("    .then(data => {\n");
-      writer.write("      // Process the JSON response and update the page content\n");
-      writer.write("      if (data.results && data.results.length > 0) {\n");
-      writer.write("        const resultContainer = document.createElement('div');\n");
-      writer.write("        resultContainer.id = 'resultContainer';\n");
-      writer.write("        document.body.appendChild(resultContainer);\n");
-      writer.write("        resultContainer.innerHTML = '';\n");
-      writer.write("        data.results.forEach(result => {\n");
-      writer.write("          const resultElement = document.createElement('div');\n");
-      writer.write("          resultElement.textContent = `Test: ${result.name}, Status: ${result.status}`;\n");
-      writer.write("          resultContainer.appendChild(resultElement);\n");
-      writer.write("        });\n");
+      writer.write("    .then(response => {\n");
+      writer.write("      if (response.ok) {\n");
+      writer.write("        return response.text();\n");  // Assuming response is HTML
+      writer.write("      } else {\n");
+      writer.write("        throw new Error('Network response was not ok');\n");
       writer.write("      }\n");
       writer.write("    })\n");
-      writer.write("    .catch(error => console.error('Error:', error));\n");
+      writer.write("    .then(html => {\n");
+      writer.write("      // Process the HTML response and provide feedback\n");
+      writer.write("      showFeedback('success', 'Reader selected successfully!');\n");
+      writer.write("    })\n");
+      writer.write("    .catch(error => {\n");
+      writer.write("      console.error('Error:', error);\n");
+      writer.write("      showFeedback('error', 'An error occurred while selecting the reader.');\n");
+      writer.write("    });\n");
+      writer.write("}\n");
+      writer.write("function showFeedback(type, message) {\n");
+      writer.write("  const feedbackContainer = document.getElementById('feedbackContainer');\n");
+      writer.write("  feedbackContainer.innerHTML = '';\n");
+      writer.write("  const feedbackElement = document.createElement('div');\n");
+      writer.write("  feedbackElement.className = type;\n");
+      writer.write("  feedbackElement.textContent = message;\n");
+      writer.write("  feedbackContainer.appendChild(feedbackElement);\n");
       writer.write("}\n");
       writer.write("</script>\n");
       writer.write("</head>\n");
       writer.write("<body>\n");
       writer.write("<div class=\"container\">\n");
       writer.write("<h1>Available PC/SC Readers</h1>\n");
+      writer.write("<div id=\"feedbackContainer\"></div>\n");
 
       if (terminals == null || terminals.isEmpty()) {
         writer.write("<div class=\"alert\">No card terminals found.</div>\n");
@@ -107,10 +119,11 @@ public class ReaderManager {
             i, terminal.getName()));
           writer.write("</div>\n");
         }
-        writer.write("<button type=\"submit\">Select Reader</button>\n");
+        writer.write("<button type=\"submit\" class=\"btn\">Select Reader</button>\n");
         writer.write("</form>\n");
       }
 
+      writer.write("<div id=\"resultContainer\"></div>\n");
       writer.write("</div>\n");
       writer.write("</body>\n");
       writer.write("</html>\n");
