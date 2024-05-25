@@ -14,15 +14,22 @@ Feel free to explore and make the most out of the OpenSAM Validation Suite
 <script>
 window.onload = function() {
     fetch('/OpenSAM.EnumerateReaders?responder=test')
-    .then(response => response.json())
-    .then(data => {
-        // Process the JSON response and update the page content
-        if (data.results && data.results.length > 0) {
+    .then(response => response.text())  // Utiliser .text() pour récupérer le contenu HTML
+    .then(html => {
+        // Créer un conteneur temporaire pour le contenu HTML
+        const tempContainer = document.createElement('div');
+        tempContainer.innerHTML = html;
+
+        // Trouver l'élément contenant les résultats dans le contenu HTML
+        const results = tempContainer.querySelectorAll('.result');  // Ajustez le sélecteur en fonction de la structure HTML
+
+        if (results.length > 0) {
             const resultContainer = document.getElementById('resultContainer');
             resultContainer.innerHTML = '';
-            data.results.forEach(result => {
+            results.forEach(result => {
+                // Créer un nouvel élément pour chaque résultat et l'ajouter au conteneur
                 const resultElement = document.createElement('div');
-                resultElement.textContent = `Test: ${result.name}, Status: ${result.status}`;
+                resultElement.textContent = result.textContent;  // Ajustez selon les besoins
                 resultContainer.appendChild(resultElement);
             });
         }
