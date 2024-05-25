@@ -1,0 +1,63 @@
+!-<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; }
+.container { max-width: 600px; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+h1 { font-size: 24px; margin-bottom: 20px; text-align: center; }
+.form-check { display: flex; align-items: center; margin-bottom: 10px; }
+.form-check input { margin-right: 10px; }
+.form-check-label { white-space: nowrap; text-align: left; }
+.btn { display: inline-block; padding: 10px 20px; font-size: 16px; color: #fff; background-color: #007bff; border: none; border-radius: 4px; cursor: pointer; text-align: center; }
+.btn:hover { background-color: #0056b3; }
+.alert { padding: 15px; background-color: #f44336; color: white; margin-bottom: 20px; border-radius: 4px; }
+</style>
+<title>PC/SC Readers</title>
+<script>
+function selectReader() {
+  const selectedReader = document.querySelector('input[name="reader"]:checked');
+  if (!selectedReader) {
+    alert('Please select a reader.');
+    return;
+  }
+  const readerName = selectedReader.value;
+  fetch(`/FitNesse.Settings.SetReader?responder=test&readerName=${encodeURIComponent(readerName)}`)
+    .then(response => response.json())
+    .then(data => {
+      // Process the JSON response and update the page content
+      if (data.results && data.results.length > 0) {
+        const resultContainer = document.createElement('div');
+        resultContainer.id = 'resultContainer';
+        document.body.appendChild(resultContainer);
+        resultContainer.innerHTML = '';
+        data.results.forEach(result => {
+          const resultElement = document.createElement('div');
+          resultElement.textContent = `Test: ${result.name}, Status: ${result.status}`;
+          resultContainer.appendChild(resultElement);
+        });
+      }
+    })
+    .catch(error => console.error('Error:', error));
+}
+</script>
+</head>
+<body>
+<div class="container">
+<h1>Available PC/SC Readers</h1>
+<form onsubmit="event.preventDefault(); selectReader();">
+<div class="form-check">
+<input type="radio" id="reader0" name="reader" value="ASK LoGO 0">
+<label class="form-check-label" for="reader0">ASK LoGO 0</label>
+</div>
+<div class="form-check">
+<input type="radio" id="reader1" name="reader" value="Identive CLOUD 2700 R Smart Card Reader 0">
+<label class="form-check-label" for="reader1">Identive CLOUD 2700 R Smart Card Reader 0</label>
+</div>
+<button type="submit">Select Reader</button>
+</form>
+</div>
+</body>
+</html>
+-!

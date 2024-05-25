@@ -1,0 +1,7 @@
+---
+Test
+---
+!define TEST_SYSTEM {slim}
+
+|Script           |reader manager|
+|enumerate readers|true          |

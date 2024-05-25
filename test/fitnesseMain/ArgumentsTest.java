@@ -21,7 +21,7 @@ public class ArgumentsTest {
   @Test
   public void defaultConfigLocation() {
     Arguments args = new Arguments();
-    assertEquals("./plugins.properties", args.getConfigFile(ContextConfigurator.systemDefaults()));
+    assertEquals("plugins/plugins.properties", args.getConfigFile(ContextConfigurator.systemDefaults()));
   }
 
   @Test

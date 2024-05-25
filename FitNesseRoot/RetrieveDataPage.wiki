@@ -1,0 +1,10 @@
+---
+Test
+---
+<test page>
+
+!define TEST_SYSTEM {slim}
+ 
+!| script |
+| import | eg.DataRetriever |
+| show | get param1 |

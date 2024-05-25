@@ -1,0 +1,36 @@
+!1 Welcome to [[FitNesse][FitNesse.FitNesse]]!
+!3 ''The fully integrated stand-alone acceptance testing framework and wiki.''
+# Here is a good place to add your first page (WikiWord). For example, MyTopLevelApplicationPage
+
+To add your first "page", click the [[Edit][.FrontPage?edit]] button and add a [[!-WikiWord-!][.FitNesse.UserGuide.FitNesseWiki.WikiWord]] to the page.
+
+| '''Main menu''' |
+| [[Settings][.FitNesse.Settings]] | ''Modify settings'' |           |''Answer the rest of your questions here.''|
+|[[A Two-Minute Example][.FitNesse.UserGuide.TwoMinuteExample]]        |''A brief example. Read this one next.''   |
+| [[NewSettings][NewSettings]] | ''Modify new settings'' |
+| [[Active Reader][.FitNesse.ActiveReader]] | ''View which reader is active'' |
+
+!-
+<script>
+window.onload = function() {
+    fetch('/FrontPage.Settings?responder=test')
+    .then(response => response.json())
+    .then(data => {
+        // Process the JSON response and update the page content
+        if (data.results && data.results.length > 0) {
+            const resultContainer = document.getElementById('resultContainer');
+            resultContainer.innerHTML = '';
+            data.results.forEach(result => {
+                const resultElement = document.createElement('div');
+                resultElement.textContent = `Test: ${result.name}, Status: ${result.status}`;
+                resultContainer.appendChild(resultElement);
+            });
+        }
+    })
+    .catch(error => console.error('Error:', error));
+};
+</script>
+-!
+
+
+!note Release ${FITNESSE_VERSION}

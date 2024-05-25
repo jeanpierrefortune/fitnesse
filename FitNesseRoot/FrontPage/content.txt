@@ -1,13 +1,35 @@
-!1 Welcome to [[FitNesse][FitNesse.FitNesse]]!
-!3 ''The fully integrated stand-alone acceptance testing framework and wiki.''
-# Here is a good place to add your first page (WikiWord). For example, MyTopLevelApplicationPage
+!1 Welcome to the OpenSAM Validation Suite
+Explore comprehensive test plans with integrated testing capabilities, execute validation tests, and access detailed documentation seamlessly.
 
-To add your first "page", click the [[Edit][.FrontPage?edit]] button and add a [[!-WikiWord-!][.FitNesse.UserGuide.FitNesseWiki.WikiWord]] to the page.
+This platform serves as an integrated solution for managing and executing functional tests for the OpenSAM product.
+Built on the robust [[Fitnesse framework][https://fitnesse.org/]], it combines static wiki pages for test plan documentation with dynamic, integrated testing capabilities for test execution and validation.
 
-|'''To Learn More...'''                                                                                            |
-|[[User Guide][.FitNesse.UserGuide]]                                   |''Answer the rest of your questions here.''|
-|[[A Two-Minute Example][.FitNesse.UserGuide.TwoMinuteExample]]        |''A brief example. Read this one next.''   |
-|[[Acceptance Tests][.FitNesse.SuiteAcceptanceTests]]                  |''FitNesse's suite of Acceptance Tests''   |
-|[[Release Notes][.FitNesse.ReleaseNotes]]                             |''Find out about FitNesse's new features'' |
+| [['''Test documentation and execution'''][.OpenSAM.OpenSAMTestPlan]] | Access detailed test plans, procedures, and guidelines, all integrated with the means to execute tests directly within the documentation. |
+| [['''Application Settings'''][.OpenSAM.ApplicationSettings]] | Configure application parameters to suit your testing requirements. |
+| [['''Help Page'''][.OpenSAM.Help]] | Access detailed instructions and support for using the platform. |
+
+Feel free to explore and make the most out of the OpenSAM Validation Suite
+
+!-
+<script>
+window.onload = function() {
+    fetch('/OpenSAM.EnumerateReaders?responder=test')
+    .then(response => response.json())
+    .then(data => {
+        // Process the JSON response and update the page content
+        if (data.results && data.results.length > 0) {
+            const resultContainer = document.getElementById('resultContainer');
+            resultContainer.innerHTML = '';
+            data.results.forEach(result => {
+                const resultElement = document.createElement('div');
+                resultElement.textContent = `Test: ${result.name}, Status: ${result.status}`;
+                resultContainer.appendChild(resultElement);
+            });
+        }
+    })
+    .catch(error => console.error('Error:', error));
+};
+</script>
+-!
 
 !note Release ${FITNESSE_VERSION}

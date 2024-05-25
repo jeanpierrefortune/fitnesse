@@ -1,7 +1,13 @@
 package opensam;
 
+import org.apache.velocity.Template;
+import org.apache.velocity.VelocityContext;
+import org.apache.velocity.app.VelocityEngine;
+import org.apache.velocity.runtime.RuntimeConstants;
+
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.util.List;
 import javax.smartcardio.CardException;
 import javax.smartcardio.CardTerminal;
@@ -33,7 +39,7 @@ public class ReaderManager {
     return "show value returned from Java";
   }
 
-  private void enumerateAndWriteReaders(String fileName) throws IOException, CardException {
+  private void enumerateAndWriteReaders1(String fileName) throws IOException, CardException {
     TerminalFactory terminalFactory = TerminalFactory.getDefault();
     List<CardTerminal> terminals = null;
 
@@ -128,6 +134,39 @@ public class ReaderManager {
       writer.write("</body>\n");
       writer.write("</html>\n");
       writer.write("-!");
+    }
+  }
+
+  private void enumerateAndWriteReaders(String fileName) throws IOException, CardException {
+    TerminalFactory terminalFactory = TerminalFactory.getDefault();
+    List<CardTerminal> terminals = null;
+
+    try {
+      terminals = terminalFactory.terminals().list();
+    } catch (CardException e) {
+      e.printStackTrace();
+    }
+
+    // Initialize Velocity
+    VelocityEngine velocityEngine = new VelocityEngine();
+    velocityEngine.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
+    velocityEngine.setProperty("classpath.resource.loader.class", "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
+    velocityEngine.init();
+
+    // Load the template
+    Template template = velocityEngine.getTemplate("templates/pcsc_readers_template.vm");
+
+    // Create context and add data
+    VelocityContext context = new VelocityContext();
+    context.put("terminals", terminals);
+
+    // Render template to a StringWriter
+    StringWriter writer = new StringWriter();
+    template.merge(context, writer);
+
+    // Write the final HTML to the file
+    try (FileWriter fileWriter = new FileWriter(fileName)) {
+      fileWriter.write(writer.toString());
     }
   }
 }

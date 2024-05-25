@@ -1,0 +1,13 @@
+---
+Help: New settings
+---
+!include -c .RetrieveDataPage
+
+!define param1 ({$param1})
+!define param2 ({$param2})
+
+!3 Formulaire des Paramétrages
+
+!-
+<form action="/YourTestPage" method="get"><label for="param1">Paramètre 1:</label><input type="text" id="param1" name="param1" value="${param1}"><br><br><label for="param2">Paramètre 2:</label><input type="text" id="param2" name="param2" value="${param2}"><br><br><input type="submit" value="Submit"></form>
+-!

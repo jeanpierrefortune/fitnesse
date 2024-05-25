@@ -1,0 +1,17 @@
+!***< Hidden
+
+!define TEST_SYSTEM {slim}
+*!
+!1 An Example !-FitNesse-! Test
+If you were testing the division function of a calculator application, you might like to see some examples working. You might want to see what you get back if you ask it to divide 10 by 2. (You might be hoping for a 5!)
+
+In !-FitNesse-!, tests are expressed as tables of '''input''' data and '''expected output''' data. Here is one way to specify a few division tests in !-FitNesse-!:
+
+|opensam.ApduExchange               |
+|numerator|denominator2|quotient?|
+|10       |2          |5.0      |
+|12.6     |3          |4.2      |
+|22       |7          |~=3.14   |
+|9        |3          |<5       |
+|11       |2          |4<_<6    |
+|100      |4          |25.0     |

@@ -1,0 +1,15 @@
+<a href="${contextRoot}FrontPage" id="art_niche"><span>FitNesse</span></a>
+<div class="header-right">OpenSAM Validation Tool</div>
+<ul>
+#set($separator = "")
+#foreach($breadCrumb in $pageTitle.BreadCrumbs)
+ <li>${separator}<a href="${contextRoot}$breadCrumb.Link">$breadCrumb.Name</a></li>
+ #set($separator = " / ")
+#end
+</ul>
+<h1>#if($pageTitle.Link)<a href="${contextRoot}$pageTitle.Link">$pageTitle.Title</a>#else#end</h1>
+
+#if($pageTitle.PageTags)<h5> $pageTitle.PageTags</h5>#end
+
+##if($pageTitle.PageType)<br/><span class="page_type">$pageTitle.PageType</span>#end
+
