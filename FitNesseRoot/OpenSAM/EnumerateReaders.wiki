@@ -3,5 +3,7 @@ Test
 ---
 !define TEST_SYSTEM {slim}
 
+|Import                          |
+|opensam                         |
 |Script           |reader manager|
 |enumerate readers|true          |
