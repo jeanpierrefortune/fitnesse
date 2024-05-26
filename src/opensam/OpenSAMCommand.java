@@ -16,11 +16,11 @@
 package opensam;
 
 /**
- * The OpenSAMCommand enum represents commands supported by OpenSAM.
+ * The OpenSamCommand enum represents commands supported by OpenSam.
  *
  * @since 0.1.0
  */
-enum OpenSAMCommand {
+enum OpenSamCommand {
 
   // Name, size, cla, ins, p1, p2, lc, le
   GET_CHALLENGE("Get Challenge", 5, (byte) 0, (byte) 0x84, (byte) 0, (byte) 0, (byte) 0, (byte) 4);
@@ -34,7 +34,7 @@ enum OpenSAMCommand {
   private final byte defaultLc;
   private final byte defaultLe;
 
-  OpenSAMCommand(
+  OpenSamCommand(
       String name,
       int apduSize,
       byte cla,

@@ -1,8 +1,4 @@
-!-<!DOCTYPE html>
-<html lang="en">
-<head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+!-
  <style>
   body { font-family: Arial, sans-serif; margin: 20px; }
   .container { max-width: 600px; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
@@ -18,7 +14,6 @@
   .error { background-color: #f44336; }
   .feedback-container { display: inline-block; margin-left: 20px; vertical-align: middle; }
  </style>
- <title>PC/SC Readers</title>
  <script>
   function selectReader() {
    const selectedReader = document.querySelector('input[name="reader"]:checked');
@@ -27,7 +22,7 @@
     return;
    }
    const readerName = selectedReader.value;
-   fetch(`/OpenSAM.SetReader?responder=test&readerName=${encodeURIComponent(readerName)}`)
+   fetch(`/OpenSam.SetReader?responder=test&readerName=${'${'}encodeURIComponent(readerName)}`)
     .then(response => {
      if (response.ok) {
       return response.text();  // Assuming response is HTML
@@ -55,19 +50,16 @@
    setTimeout(() => { feedbackContainer.innerHTML = ''; }, 3000); // Hide after 3 seconds
   }
  </script>
-</head>
-<body>
 <div class="container">
- <h1>All Available PC/SC Readers</h1>
+ <h1>Available PC/SC Readers</h1>
  #if($terminals.isEmpty())
   <div class="alert">No card terminals found.</div>
  #else
   <form onsubmit="event.preventDefault(); selectReader();" style="display: flex; align-items: center;">
-   #foreach($i in [0..$terminals.size()-1])
-    #set($terminal = $terminals.get($i))
+   #foreach($terminal in $terminals)
     <div class="form-check">
-     <input type="radio" id="reader${i}" name="reader" value="${terminal.getName()}">
-     <label class="form-check-label" for="reader${i}">${terminal.getName()}</label>
+     <input type="radio" id="reader${foreach.index}" name="reader" value="${terminal.getName()}">
+     <label class="form-check-label" for="reader${foreach.index}">${terminal.getName()}</label>
     </div>
    #end
    <button type="submit" class="btn">Select Reader</button>
@@ -76,6 +68,4 @@
  #end
  <div id="resultContainer"></div>
 </div>
-</body>
-</html>
 -!

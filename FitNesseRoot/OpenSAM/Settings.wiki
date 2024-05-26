@@ -23,7 +23,7 @@ function selectReader() {
     return;
   }
   const readerName = selectedReader.value;
-  fetch(`/OpenSAM.SetReader?responder=test&readerName=${encodeURIComponent(readerName)}`)
+  fetch(`/OpenSam.SetReader?responder=test&readerName=${encodeURIComponent(readerName)}`)
     .then(response => response.json())
     .then(data => {
       // Process the JSON response and update the page content

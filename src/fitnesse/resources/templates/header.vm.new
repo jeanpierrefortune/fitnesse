@@ -1,5 +1,5 @@
 <a href="${contextRoot}FrontPage" id="art_niche"><span>FitNesse</span></a>
-<div class="header-right">OpenSAM Validation Tool</div>
+<div class="header-right">OpenSam Validation Tool</div>
 <ul>
 #set($separator = "")
 #foreach($breadCrumb in $pageTitle.BreadCrumbs)

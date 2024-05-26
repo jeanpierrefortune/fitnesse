@@ -1,19 +1,19 @@
-!1 Welcome to the OpenSAM Validation Suite
+!1 Welcome to the OpenSam Validation Suite
 Explore comprehensive test plans with integrated testing capabilities, execute validation tests, and access detailed documentation seamlessly.
 
-This platform serves as an integrated solution for managing and executing functional tests for the OpenSAM product.
+This platform serves as an integrated solution for managing and executing functional tests for the OpenSam product.
 Built on the robust [[Fitnesse framework][https://fitnesse.org/]], it combines static wiki pages for test plan documentation with dynamic, integrated testing capabilities for test execution and validation.
 
-| [['''Test documentation and execution'''][.OpenSAM.OpenSAMTestPlan]] | Access detailed test plans, procedures, and guidelines, all integrated with the means to execute tests directly within the documentation. |
-| [['''Application Settings'''][.OpenSAM.ApplicationSettings]] | Configure application parameters to suit your testing requirements. |
-| [['''Help Page'''][.OpenSAM.Help]] | Access detailed instructions and support for using the platform. |
+| [['''Test documentation and execution'''][.OpenSam.OpenSamTestPlan]] | Access detailed test plans, procedures, and guidelines, all integrated with the means to execute tests directly within the documentation. |
+| [['''Application Settings'''][.OpenSam.ApplicationSettings]] | Configure application parameters to suit your testing requirements. |
+| [['''Help Page'''][.OpenSam.Help]] | Access detailed instructions and support for using the platform. |
 
-Feel free to explore and make the most out of the OpenSAM Validation Suite
+Feel free to explore and make the most out of the OpenSam Validation Suite
 
 !-
 <script>
 window.onload = function() {
-    fetch('/OpenSAM.EnumerateReaders?responder=test')
+    fetch('/OpenSam.EnumerateReaders?responder=test')
     .then(response => response.text())  // Utiliser .text() pour récupérer le contenu HTML
     .then(html => {
         // Créer un conteneur temporaire pour le contenu HTML
