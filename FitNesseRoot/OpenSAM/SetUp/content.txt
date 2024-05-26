@@ -1,6 +1,8 @@
 !***> setup
 
 |import |
+|fitnesse.slim.test|
+|fitnesse.fixtures|
 |opensam|
 
 *!

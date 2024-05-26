@@ -2,6 +2,6 @@
 Test
 ---
 !***> setup
-|Import            |
+|Import |
 |opensam|
 *!

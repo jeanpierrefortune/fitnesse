@@ -2,6 +2,9 @@
 Test
 ---
 !define TEST_SYSTEM {slim}
+!define W
+!path lib/*.jar
 
 |script           |reader manager|
 |enumerate readers|true          |
+|$W=              |getShowValue  |

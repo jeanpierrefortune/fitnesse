@@ -1,7 +1,6 @@
-!***> setup
-
-|import            |
+!*> setup
+|import|
 |fitnesse.slim.test|
-|fitnesse.fixtures |
+|fitnesse.fixtures|
 
 *!

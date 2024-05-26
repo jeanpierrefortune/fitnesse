@@ -1,8 +1,0 @@
----
-Test
----
-!***> setup
-|Import            |
-|fitnesse.slim.test|
-|fitnesse.fixtures |
-*!

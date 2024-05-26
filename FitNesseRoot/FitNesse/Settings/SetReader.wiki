@@ -1,8 +1,0 @@
----
-Test
----
-!define TEST_SYSTEM {slim}
-!define ACTIVE_READER_NAME (${readerName})
-
-|script       |reader manager            |
-|set active reader|${ACTIVE_READER_NAME}||
