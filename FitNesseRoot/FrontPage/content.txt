@@ -1,4 +1,4 @@
-!1 Welcome to the OpenSam Validation Suite
+!1 Welcome to the OpenSAM Test Suite
 Explore comprehensive test plans with integrated testing capabilities, execute validation tests, and access detailed documentation seamlessly.
 
 This platform serves as an integrated solution for managing and executing functional tests for the OpenSam product.
