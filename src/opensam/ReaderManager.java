@@ -28,7 +28,7 @@ public class ReaderManager {
 
   public boolean setActiveReader(String readerName) {
     try (FileWriter writer = new FileWriter("FitNesseRoot\\OpenSam\\ActiveReader.wiki")) {
-      writer.write("Active reader: '''" + readerName + "'''");
+      writer.write("!2 Active reader: '''" + readerName + "'''");
     } catch (IOException e) {
       return false;
     }
