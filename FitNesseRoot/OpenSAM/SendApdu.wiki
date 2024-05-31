@@ -1,0 +1,33 @@
+---
+Test
+---
+<test page>
+
+ASK LoGO 0
+
+!define TEST_SYSTEM {slim}
+!define W
+
+!path lib/*.jar
+
+|import     |
+|cna.opensam|
+|cna.crypto |
+
+
+!include SendApdu.PreConditions
+
+|script       |crypto               |
+|$ALEA=       |generate alea|8      |
+|$ALEA_SHIFTED=|shift   |$ALEA|left|24|
+
+|script   |card command|Identive CLOUD 2700 R Smart Card Reader 0|
+|send apdu|0086000008$ALEA_SHIFTED                                       |
+
+|dt:card command|Identive CLOUD 2700 R Smart Card Reader 0|
+|apdu        |apdu response?                           |
+|0084000008  |=~/[0-9A-Fa-f]{16}9000/                  |
+|0084000004  |=~/[0-9A-Fa-f]{8}9000/                   |
+|0084000005  |6700                                     |
+|0086000008$D|9000                                     |
+

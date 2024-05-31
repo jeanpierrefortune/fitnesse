@@ -13,7 +13,7 @@
  *
  * All rights reserved.
  ************************************************************************************** */
-package opensam;
+package cna.opensam;
 
 /**
  * The OpenSamCommand enum represents commands supported by OpenSam.

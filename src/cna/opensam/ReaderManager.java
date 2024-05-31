@@ -1,4 +1,4 @@
-package opensam;
+package cna.opensam;
 
 import java.io.FileWriter;
 import java.io.IOException;

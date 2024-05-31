@@ -1,0 +1,9 @@
+---
+Test
+---
+|script   |card command|Identive CLOUD 2700 R Smart Card Reader 0|
+|send apdu|0084000008                                            |
+|$R=      |getApduResponse                                       |
+|$D=      |getApduData                                           |
+|send apdu|0086000008$D                                          |
+|$R=      |getApduResponse                                       |

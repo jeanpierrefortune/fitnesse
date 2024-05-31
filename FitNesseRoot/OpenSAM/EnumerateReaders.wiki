@@ -7,7 +7,7 @@ Test
 !path lib/*.jar
 
 |import |
-|opensam|
+|cna.opensam|
 
 |script           |reader manager|
 |enumerate readers|true          |

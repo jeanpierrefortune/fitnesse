@@ -1,10 +1,10 @@
-!1 Welcome to the OpenSAM Test Suite
+!1 Welcome to the OpenSAM Testing Tool
 Explore comprehensive test plans with integrated testing capabilities, execute validation tests, and access detailed documentation seamlessly.
 
 This platform serves as an integrated solution for managing and executing functional tests for the OpenSam product.
 Built on the robust [[Fitnesse framework][https://fitnesse.org/]], it combines static wiki pages for test plan documentation with dynamic, integrated testing capabilities for test execution and validation.
 
-| [['''Test documentation and execution'''][.OpenSam.OpenSamTestPlan]] | Access detailed test plans, procedures, and guidelines, all integrated with the means to execute tests directly within the documentation. |
+| [['''Test Suite'''][.OpenSam.OpenSamTestPlan]] | Access detailed test plans, procedures, and guidelines, all integrated with the means to execute tests directly within the documentation. |
 | [['''Application Settings'''][.OpenSam.ApplicationSettings]] | Configure application parameters to suit the testing requirements. |
 | [['''Help Page'''][.OpenSam.Help]] | Access detailed instructions and support for using the platform. |
 

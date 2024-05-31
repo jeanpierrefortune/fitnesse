@@ -341,7 +341,7 @@ def pomDevelopers() {
 // Spotless configuration
 spotless {
   java {
-    target 'src/opensam/**/*.java', 'test/opensam/**/*.java'
+    target 'src/cna/**/*.java', 'test/cna/**/*.java'
     googleJavaFormat('1.10.0')
     removeUnusedImports()
     trimTrailingWhitespace()

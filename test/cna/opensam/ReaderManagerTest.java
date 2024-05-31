@@ -1,4 +1,4 @@
-package opensam;
+package cna.opensam;
 
 import junit.framework.TestCase;
 

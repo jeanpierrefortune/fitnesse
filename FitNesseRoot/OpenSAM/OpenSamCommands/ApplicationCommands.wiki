@@ -1,0 +1,9 @@
+---
+Help: Application commands requirements
+Suite
+---
+!2 Test suite ${PAGE_NAME}
+
+This test suite is dedicated to the test of the APDU commands of the OpenSAM.
+
+!contents -R2 -g -p -f -h
