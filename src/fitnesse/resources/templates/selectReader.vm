@@ -16,7 +16,7 @@
    return;
   }
   const readerName = selectedReader.value;
-  fetch(`/OpenSam.SetReader?responder=test&readerName=` + readerName)
+  fetch(`/FitNesse.OpenSam.SetReader?responder=test&readerName=` + readerName)
    .then(response => {
     if (response.ok) {
      return response.text(); // Assuming response is HTML

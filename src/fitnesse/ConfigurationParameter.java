@@ -2,11 +2,12 @@ package fitnesse;
 
 import util.FileUtil;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
+import java.net.URL;
+import java.util.Enumeration;
 import java.util.Properties;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -73,20 +74,38 @@ public enum ConfigurationParameter {
   }
 
   public static Properties loadProperties(File propertiesFile) {
-    FileInputStream propertiesStream = null;
     Properties properties = new Properties();
-    try {
-      propertiesStream = new FileInputStream(propertiesFile);
-      properties.load(propertiesStream);
-    } catch (FileNotFoundException e) {
-      LOG.info(String.format("No configuration file found (%s)", getCanonicalPath(propertiesFile)));
-    } catch (IOException e) {
-      LOG.log(Level.WARNING, String.format("Error reading configuration: %s", e.getMessage()));
-    } finally {
-      FileUtil.close(propertiesStream);
+    String resourcePath = convertFilePathToResourcePath(propertiesFile.getPath());
+
+    try (InputStream in = ConfigurationParameter.class.getResourceAsStream(resourcePath)) {
+      if (in != null) {
+        properties.load(in);
+      } else {
+        System.out.println("Configuration file not found within resources (" + resourcePath + ")");
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return properties;
+  }
+
+  private static String convertFilePathToResourcePath(String filePath) {
+    // Replace system-specific file separators with '/'
+    String resourcePath = filePath.replace(File.separatorChar, '/');
+
+    // Remove any leading "./" or ".\" from the path
+    if (resourcePath.startsWith("./")) {
+      resourcePath = resourcePath.substring(2);
+    } else if (resourcePath.startsWith(".\\")) {
+      resourcePath = resourcePath.substring(2);
     }
 
-    return properties;
+    // Ensure the path starts with a leading slash
+    if (!resourcePath.startsWith("/")) {
+      resourcePath = "/" + resourcePath;
+    }
+
+    return resourcePath;
   }
 
   private static String getCanonicalPath(File propertiesFile) {

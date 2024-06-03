@@ -4,16 +4,16 @@ Explore comprehensive test plans with integrated testing capabilities, execute v
 This platform serves as an integrated solution for managing and executing functional tests for the OpenSam product.
 Built on the robust [[Fitnesse framework][https://fitnesse.org/]], it combines static wiki pages for test plan documentation with dynamic, integrated testing capabilities for test execution and validation.
 
-| [['''Test Suite'''][.OpenSam.OpenSamTestPlan]] | Access detailed test plans, procedures, and guidelines, all integrated with the means to execute tests directly within the documentation. |
-| [['''Application Settings'''][.OpenSam.ApplicationSettings]] | Configure application parameters to suit the testing requirements. |
-| [['''Help Page'''][.OpenSam.Help]] | Access detailed instructions and support for using the platform. |
+| [['''Test Suite'''][.FitNesse.OpenSam.OpenSamTestPlan]] | Access detailed test plans, procedures, and guidelines, all integrated with the means to execute tests directly within the documentation. |
+| [['''Settings'''][.FitNesse.OpenSam.ApplicationSettings]] | Configure application parameters to suit the testing requirements. |
+| [['''Help Page'''][.FitNesse.OpenSam.Help]] | Access detailed instructions and support for using the platform. |
 
 Feel free to explore and make the most out of the OpenSam Validation Suite
 
 !-
 <script>
 window.onload = function() {
-    fetch('/OpenSam.EnumerateReaders?responder=test')
+    fetch('/Fitnesse.OpenSam.EnumerateReaders?responder=test')
     .then(response => response.text())  // Utiliser .text() pour récupérer le contenu HTML
     .then(html => {
         // Créer un conteneur temporaire pour le contenu HTML

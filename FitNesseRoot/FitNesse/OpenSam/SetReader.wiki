@@ -1,5 +1,10 @@
 ---
+Files: no
+RecentChanges: no
+Refactor: no
+Search: no
 Test
+WhereUsed: no
 ---
 !define TEST_SYSTEM {slim}
 !define ACTIVE_READER_NAME (${readerName})

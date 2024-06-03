@@ -16,7 +16,7 @@
    return;
   }
   const readerName = selectedReader.value;
-  fetch(`/OpenSam.SetReader?responder=test&readerName=` + readerName)
+  fetch(`/FitNesse.OpenSam.SetReader?responder=test&readerName=` + readerName)
    .then(response => {
     if (response.ok) {
      return response.text(); // Assuming response is HTML
@@ -44,16 +44,7 @@
 </script>
 <div class="container">
  <h3>Available PC/SC Readers</h3>
-  <form onsubmit="event.preventDefault(); selectReader();">
-    <div class="form-check">
-     <input type="radio" id="reader0" name="reader" value="Identive CLOUD 2700 R Smart Card Reader 0">
-     <label class="form-check-label" for="reader0">Identive CLOUD 2700 R Smart Card Reader 0</label>
-    </div>
-   <div style="display: flex; align-items: center;">
-    <button type="submit" class="btn">Select Reader</button>
-    <div id="feedbackContainer" class="feedback-container"></div>
-   </div>
-  </form>
+  <div class="alert">No card terminals found.</div>
 -!
 !include -seamless ActiveReader
 !-

@@ -18,7 +18,7 @@ public class ReaderManager {
 
   public boolean enumerateReaders(boolean flag) {
     try {
-      enumerateAndWriteReaders("FitNesseRoot\\OpenSam\\ApplicationSettings.wiki");
+      enumerateAndWriteReaders("FitNesseRoot\\FitNesse\\OpenSam\\ReaderSelection.wiki");
     } catch (Exception e) {
       e.printStackTrace();
       return false;
@@ -27,7 +27,7 @@ public class ReaderManager {
   }
 
   public boolean setActiveReader(String readerName) {
-    try (FileWriter writer = new FileWriter("FitNesseRoot\\OpenSam\\ActiveReader.wiki")) {
+    try (FileWriter writer = new FileWriter("FitNesseRoot\\FitNesse\\OpenSam\\ActiveReader.wiki")) {
       writer.write("!2 Active reader: '''" + readerName + "'''");
     } catch (IOException e) {
       return false;

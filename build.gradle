@@ -200,6 +200,7 @@ task standaloneJar(type: Jar) {
     exclude 'META-INF/**'
   }
   from jar.outputs.files.collect {
+    print(it)
     zipTree(it)
   }
   manifest {

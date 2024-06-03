@@ -1,0 +1,7 @@
+This page enables the configuration of various parameters to customize the application according to specific needs. 
+The options below provide tools for various configuration tasks.
+
+|[[Reader selection][ReaderSelection]]                                                   |Choose the name of the PC/SC reader to use with the application.           |
+|[[Profiles and parameters][ApplicationSettings.ProfilesAndParameters]]|Configure the product profiles and their respective settings.              |
+|[[Applicability definitions][Applicabilities]]                                          |Set the applicability criteria for requirements and their associated tests.|
+|[[Template library][.TemplateLibrary]]                                                  |Create and edit templates for use in generating new test plan pages.       |
