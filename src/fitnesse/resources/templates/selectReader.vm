@@ -3,9 +3,11 @@
  document.addEventListener('DOMContentLoaded', (event) => {
   // Check if there's feedback in localStorage
   const feedback = localStorage.getItem('feedback');
+  const feedbackType = localStorage.getItem('feedbackType');
   if (feedback) {
-   showFeedback('success', feedback);
+   showFeedback(feedbackType, feedback);
    localStorage.removeItem('feedback');
+   localStorage.removeItem('feedbackType');
   }
  });
 
@@ -16,7 +18,7 @@
    return;
   }
   const readerName = selectedReader.value;
-  fetch(`/FitNesse.OpenSam.SetReader?responder=test&readerName=` + readerName)
+  fetch(`/FitNesse.XApplicationSettings.SetReader?responder=test&readerName=` + readerName)
    .then(response => {
     if (response.ok) {
      return response.text(); // Assuming response is HTML
@@ -27,18 +29,21 @@
    .then(html => {
     // Store feedback in localStorage and reload the page
     localStorage.setItem('feedback', 'Reader selected successfully!');
+    localStorage.setItem('feedbackType', 'success');
     window.location.reload();
    })
    .catch(error => {
     console.error('Error:', error);
-    showFeedback('error', 'An error occurred while selecting the reader.');
+    localStorage.setItem('feedback', 'An error occurred while selecting the reader.');
+    localStorage.setItem('feedbackType', 'error');
+    window.location.reload();
    });
  }
 
  function showFeedback(type, message) {
   const feedbackContainer = document.getElementById('feedbackContainer');
   feedbackContainer.innerHTML = message;
-  feedbackContainer.className = type === 'error' ? 'feedback-container error' : 'feedback-container';
+  feedbackContainer.className = type === 'error' ? 'feedback-container error' : 'feedback-container success';
   setTimeout(() => { feedbackContainer.innerHTML = ''; }, 1500); // Hide after 1.5 seconds
  }
 </script>

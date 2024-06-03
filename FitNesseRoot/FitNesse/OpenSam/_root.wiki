@@ -1,2 +1,7 @@
-!1 Test suite ${PAGE_NAME}
-!contents -R1 -g -p -f -h
+---
+Suite
+---
+!2 OpenSAM Test Plan
+
+|[[Card Transaction][OpenSam.CardTransaction]]|All requirements and tests related to the usage of the OpenSAM for card transactions.|
+|[[Management][OpenSam.Management]]|All requirements and tests related to the management of the OpenSAM itself.|

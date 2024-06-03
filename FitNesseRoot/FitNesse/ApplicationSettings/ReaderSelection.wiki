@@ -3,9 +3,11 @@
  document.addEventListener('DOMContentLoaded', (event) => {
   // Check if there's feedback in localStorage
   const feedback = localStorage.getItem('feedback');
+  const feedbackType = localStorage.getItem('feedbackType');
   if (feedback) {
-   showFeedback('success', feedback);
+   showFeedback(feedbackType, feedback);
    localStorage.removeItem('feedback');
+   localStorage.removeItem('feedbackType');
   }
  });
 
@@ -16,7 +18,7 @@
    return;
   }
   const readerName = selectedReader.value;
-  fetch(`/FitNesse.OpenSam.SetReader?responder=test&readerName=` + readerName)
+  fetch(`/FitNesse.XApplicationSettings.SetReader?responder=test&readerName=` + readerName)
    .then(response => {
     if (response.ok) {
      return response.text(); // Assuming response is HTML
@@ -27,24 +29,40 @@
    .then(html => {
     // Store feedback in localStorage and reload the page
     localStorage.setItem('feedback', 'Reader selected successfully!');
+    localStorage.setItem('feedbackType', 'success');
     window.location.reload();
    })
    .catch(error => {
     console.error('Error:', error);
-    showFeedback('error', 'An error occurred while selecting the reader.');
+    localStorage.setItem('feedback', 'An error occurred while selecting the reader.');
+    localStorage.setItem('feedbackType', 'error');
+    window.location.reload();
    });
  }
 
  function showFeedback(type, message) {
   const feedbackContainer = document.getElementById('feedbackContainer');
   feedbackContainer.innerHTML = message;
-  feedbackContainer.className = type === 'error' ? 'feedback-container error' : 'feedback-container';
+  feedbackContainer.className = type === 'error' ? 'feedback-container error' : 'feedback-container success';
   setTimeout(() => { feedbackContainer.innerHTML = ''; }, 1500); // Hide after 1.5 seconds
  }
 </script>
 <div class="container">
  <h3>Available PC/SC Readers</h3>
-  <div class="alert">No card terminals found.</div>
+  <form onsubmit="event.preventDefault(); selectReader();">
+    <div class="form-check">
+     <input type="radio" id="reader0" name="reader" value="ASK LoGO 0">
+     <label class="form-check-label" for="reader0">ASK LoGO 0</label>
+    </div>
+    <div class="form-check">
+     <input type="radio" id="reader1" name="reader" value="Identive CLOUD 2700 R Smart Card Reader 0">
+     <label class="form-check-label" for="reader1">Identive CLOUD 2700 R Smart Card Reader 0</label>
+    </div>
+   <div style="display: flex; align-items: center;">
+    <button type="submit" class="btn">Select Reader</button>
+    <div id="feedbackContainer" class="feedback-container"></div>
+   </div>
+  </form>
 -!
 !include -seamless ActiveReader
 !-

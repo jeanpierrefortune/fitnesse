@@ -1,19 +1,18 @@
-!1 Welcome to the OpenSAM Testing Tool
+!2 Welcome to the OpenSAM Testing Tool
 Explore comprehensive test plans with integrated testing capabilities, execute validation tests, and access detailed documentation seamlessly.
 
-This platform serves as an integrated solution for managing and executing functional tests for the OpenSam product.
+This platform serves as an integrated solution for managing and executing functional tests for the OpenSAM product.
 Built on the robust [[Fitnesse framework][https://fitnesse.org/]], it combines static wiki pages for test plan documentation with dynamic, integrated testing capabilities for test execution and validation.
 
-| [['''Test Suite'''][.FitNesse.OpenSam.OpenSamTestPlan]] | Access detailed test plans, procedures, and guidelines, all integrated with the means to execute tests directly within the documentation. |
-| [['''Settings'''][.FitNesse.OpenSam.ApplicationSettings]] | Configure application parameters to suit the testing requirements. |
-| [['''Help Page'''][.FitNesse.OpenSam.Help]] | Access detailed instructions and support for using the platform. |
-
-Feel free to explore and make the most out of the OpenSam Validation Suite
+|[['''Test Plan'''][.FitNesse.OpenSam]]|Access detailed test plan, procedures, and guidelines, all integrated with the means to execute tests directly within the documentation.|
+|[['''Settings'''][.FitNesse.ApplicationSettings]]      |Configure application parameters to suit the testing requirements.                                                                       |
+|[['''Help Page'''][.FitNesse.OpenSam.Help]]            |Access detailed instructions and support for using the platform.                                                                         |
+|[['''Version History'''][.FitNesse.VersionHistory]]    |View the version history.                                                                                                                 |
 
 !-
 <script>
 window.onload = function() {
-    fetch('/Fitnesse.OpenSam.EnumerateReaders?responder=test')
+    fetch('/Fitnesse.ApplicationSettings.EnumerateReaders?responder=test')
     .then(response => response.text())  // Utiliser .text() pour récupérer le contenu HTML
     .then(html => {
         // Créer un conteneur temporaire pour le contenu HTML
