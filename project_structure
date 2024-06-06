@@ -1,0 +1,20 @@
+FitNesseRoot\FitNesse\ApplicationSettings\_root.wiki
+
+FitNesseRoot\FitNesse\ApplicationSettings\Profiles\
+    dossier contenant les fichiers Profiles[...].wiki
+
+FitNesseRoot\FitNesse\ApplicationSettings\Profiles\_root.wiki
+    liste les fichiers Profiles[...].wiki
+
+FitNesseRoot\FitNesse\ApplicationSettings\BuildSettings.wiki
+    génère un extrait html contenant un formulaire de sélection des lecteurs et les settings sélectionnés
+
+FitNesseRoot\FitNesse\ApplicationSettings\ActiveProfile.wiki
+    généré dynamiquement après sélection du profile, contient toutes les variables de contexte
+
+FitNesseRoot\FitNesse\ApplicationSettings\SetProfile.wiki
+    génère le fichier ActiveProfile.wiki à partir du profile et des lecteurs sélectionnés
+
+FitNesseRoot\FitNesse\ApplicationSettings\Settings.wiki
+
+

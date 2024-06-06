@@ -1,0 +1,17 @@
+---
+Help: OpenSAM version 3
+---
+!-
+<script>adjustHexCells();</script>
+-!
+
+!3 OpenSAM Profile
+Below is the table of variables defining a particular test context.
+The naming of the variables is flexible but must remain consistent with their use in the test plan pages.
+The variable PROFILE_NAME must be defined.
+
+| PROFILE_NAME | ${PAGE_NAME} |
+| AID | 33445566778899 |
+| PUBLIC_KEY1 | |
+| PATH_TO_CERTIFICATE1 | |
+| CERTIFICATE2 | |

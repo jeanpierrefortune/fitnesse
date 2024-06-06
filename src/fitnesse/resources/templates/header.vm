@@ -2,10 +2,10 @@
 
 <ul>
 #foreach($breadCrumb in $pageTitle.BreadCrumbs)
- <li>/ <a href="${contextRoot}$breadCrumb.Link">$breadCrumb.Name</a></li>
+ <li><a href="${contextRoot}$breadCrumb.Link">$breadCrumb.Name</a></li>
 #end
 </ul>
-##<h1>#if($pageTitle.Link)<a href="${contextRoot}$pageTitle.Link">$pageTitle.Title</a>#else$pageTitle.Title#end</h1>
+<h1>#if($pageTitle.Link)<a href="${contextRoot}$pageTitle.Link">$pageTitle.Title</a>#else$pageTitle.Title#end</h1>
 
 #if($pageTitle.PageTags)<h5> $pageTitle.PageTags</h5>#end
 

@@ -2,6 +2,12 @@
 Suite
 ---
 !2 OpenSAM Test Plan
+${RUNNING_PAGE_NAME}
+
 
 |[[Card Transaction][OpenSam.CardTransaction]]|All requirements and tests related to the usage of the OpenSAM for card transactions.|
 |[[Management][OpenSam.Management]]|All requirements and tests related to the management of the OpenSAM itself.|
+
+
+
+Click [[here][OpenSam.SuiteSetUp]] to modify the main suite setup.

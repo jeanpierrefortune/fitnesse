@@ -1,0 +1,3 @@
+!2 Select Application
+
+|[[SC-SA 01-1][SelectApplication.SC-SA-01-1]]|Select Application shall select in the SAM an application which first (leftmost) AID bytes are equal to the incoming data (as defined by ISO/IEC 7816-4 standard), making the selected application become the Current application, and shall return information about this application as requested in the command.|

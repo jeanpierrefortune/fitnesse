@@ -1,1 +1,10 @@
+---
+Suite
+---
 !2 Card Transaction
+This part of the OpenSAM test plan focuses on the functionalities linked to the cryptographic operations required to operate Calypso cards.
+
+|[[Data Structure][CardTransaction.DataStructure]]                                      |Requirements and validation processes for the SAM data structure.              |
+|[[Communication Protocols][CardTransaction.CommunicationProtocols]]                    |Requirements and validation processes for the SAM communication protocols.     |
+|[[Command Set][CardTransaction.CommandSet]]                                            |Requirements and validation processes for the SAM command set.                 |
+|[[SAM Application Counter Management][CardTransaction.SamApplicationCounterManagement]]|Requirements and validation processes for managing the SAM application counter.|

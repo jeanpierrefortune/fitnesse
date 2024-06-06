@@ -11,7 +11,7 @@ WhereUsed: no
 !path lib/*.jar
 
 |import |
-|cna.opensam|
+|opensam|
 
-|script       |reader manager            |
-|set active reader|${ACTIVE_READER_NAME}||
+|script       |profile manager            |
+|set active profile|${ACTIVE_READER_NAME}||

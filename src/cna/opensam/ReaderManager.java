@@ -27,7 +27,8 @@ public class ReaderManager {
   }
 
   public boolean setActiveReader(String readerName) {
-    try (FileWriter writer = new FileWriter("FitNesseRoot\\FitNesse\\ApplicationSettings\\ActiveReader.wiki")) {
+    try (FileWriter writer =
+        new FileWriter("FitNesseRoot\\FitNesse\\ApplicationSettings\\ActiveReader.wiki")) {
       writer.write("!2 Active reader: '''" + readerName + "'''");
     } catch (IOException e) {
       return false;
@@ -55,14 +56,13 @@ public class ReaderManager {
 
     // Initialize Velocity
     VelocityEngine velocityEngine = new VelocityEngine();
-    velocityEngine.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
+    velocityEngine.setProperty(RuntimeConstants.RESOURCE_LOADER, "file");
     velocityEngine.setProperty(
-        "classpath.resource.loader.class",
-        "org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader");
+        RuntimeConstants.FILE_RESOURCE_LOADER_PATH, "FitNesseRoot/files/fitnesse/templates/");
     velocityEngine.init();
 
     // Load the template
-    Template template = velocityEngine.getTemplate("fitnesse/resources/templates/selectReader.vm");
+    Template template = velocityEngine.getTemplate("selectReader.vm");
     // Create context and add data
     VelocityContext context = new VelocityContext();
     context.put("terminals", terminals);

@@ -1,0 +1,19 @@
+---
+Test
+---
+!define TEST_SYSTEM {slim}
+!path lib/*.jar
+!define ACTIVE_READER_NAME (${readerName})
+!define ACTIVE_PROFILE (${profileName})
+
+
+|import     |
+|cna.opensam|
+|cna.settings|
+
+|script           |reader manager        |
+|set active reader|${ACTIVE_READER_NAME}||
+
+
+|script|settings page builder   |
+|build |${ACTIVE_PROFILE}|

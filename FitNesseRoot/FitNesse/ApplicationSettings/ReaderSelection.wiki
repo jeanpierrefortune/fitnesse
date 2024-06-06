@@ -18,7 +18,7 @@
    return;
   }
   const readerName = selectedReader.value;
-  fetch(`/FitNesse.XApplicationSettings.SetReader?responder=test&readerName=` + readerName)
+  fetch(`/FitNesse.ApplicationSettings.SetReader?responder=test&readerName=` + readerName)
    .then(response => {
     if (response.ok) {
      return response.text(); // Assuming response is HTML
@@ -29,13 +29,13 @@
    .then(html => {
     // Store feedback in localStorage and reload the page
     localStorage.setItem('feedback', 'Reader selected successfully!');
-    localStorage.setItem('feedbackType', 'success');
+    localStorage.setItem('feedbackType', 'feedback-success');
     window.location.reload();
    })
    .catch(error => {
     console.error('Error:', error);
     localStorage.setItem('feedback', 'An error occurred while selecting the reader.');
-    localStorage.setItem('feedbackType', 'error');
+    localStorage.setItem('feedbackType', 'feedback-error');
     window.location.reload();
    });
  }
@@ -43,7 +43,7 @@
  function showFeedback(type, message) {
   const feedbackContainer = document.getElementById('feedbackContainer');
   feedbackContainer.innerHTML = message;
-  feedbackContainer.className = type === 'error' ? 'feedback-container error' : 'feedback-container success';
+  feedbackContainer.className = type === 'error' ? 'feedback-container feedback-error' : 'feedback-container feedback-success';
   setTimeout(() => { feedbackContainer.innerHTML = ''; }, 1500); // Hide after 1.5 seconds
  }
 </script>

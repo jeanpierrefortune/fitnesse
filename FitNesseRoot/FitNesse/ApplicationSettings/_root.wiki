@@ -1,10 +1,12 @@
+---
+Refactor: no
+Static
+WhereUsed: no
+---
 !2 Application settings
 This page enables the configuration of various parameters to customize the application according to specific needs. 
 The options below provide tools for various configuration tasks.
 
-|[[Reader selection][ApplicationSettings.ReaderSelection]]             |Choose the name of the PC/SC reader to use with the application.           |
-|[[Profiles and parameters][ApplicationSettings.ProfilesAndParameters]]|Configure the product profiles and their respective settings.              |
-|[[Applicability definitions][ApplicationSettings.Applicabilities]]    |Set the applicability criteria for requirements and their associated tests.|
-|[[Template library][.TemplateLibrary]]                                |Create and edit templates for use in generating new wiki pages.            |
-|[[Page Header][.PageHeader]]                                          |Edit header common to all pages.                                           |
-|[[Page Footer][.PageFooter]]                                          |Edit footer common to all pages.                                           |
+|[[Reader selection][ApplicationSettings.ReaderSelection]]         |Choose the name of the PC/SC reader to use with the application.           |
+|[[Profiles][ApplicationSettings.Profiles]]                        |Define the product profiles.                                               |
+|[[Template library][.TemplateLibrary]]                            |Create and edit templates for use in generating new wiki pages.            |

@@ -1,0 +1,3 @@
+#foreach ($entry in $variables.entrySet())
+!define $entry.key {$entry.value}
+#end

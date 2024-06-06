@@ -1,0 +1,7 @@
+---
+Help: Get Challenge 1
+Test
+---
+${AID}
+
+${CERTIFICATE1}

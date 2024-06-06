@@ -1,0 +1,8 @@
+---
+Suite
+---
+!2 Generic Commands
+
+[[Select Application][GenericCommands.SelectApplication]]
+[[Get Response][GenericCommands.GetResponse]]
+[[Verify Application Password][VerifyApplicationPassword]]

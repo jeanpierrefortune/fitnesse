@@ -1,0 +1,6 @@
+!2 Get Challenge
+
+!contents -R3 -g -p -f -h
+
+
+[[SC-GC-02-1][GetChallenge.SC-GC-02-1]]

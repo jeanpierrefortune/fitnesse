@@ -305,14 +305,15 @@ h1 {
   background-color: #0056b3;
 }
 
-.alert, .success, .error {
-  padding: 15px;
-  color: white;
-  margin-bottom: 20px;
-  border-radius: 4px;
+.alert {
+  background-color: #f44336;
 }
 
-.alert {
+.success {
+  background-color: #4CAF50;
+}
+
+.error {
   background-color: #f44336;
 }
 
@@ -323,10 +324,16 @@ h1 {
   text-align: center;
 }
 
-.feedback-container.success {
+.feedback-container.feedback-success {
   color: green;
 }
 
-.feedback-container.error {
+.feedback-container.feedback-error {
   color: red;
+}
+
+.hex-cell {
+  max-width: 80ch;
+  word-wrap: break-word;
+  font-family: monospace;
 }
